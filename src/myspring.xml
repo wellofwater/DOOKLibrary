@@ -15,10 +15,10 @@
 
 	<!-- 1. Database Setting -->
  	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
- 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
- 		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"/>
- 		<property name="username" value="lib"/>
- 		<property name="password" value="lib"/>
+ 		<property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+ 		<property name="url" value="jdbc:mariadb://dbserver:3306/shopdb"/>
+ 		<property name="username" value="user1"/>
+ 		<property name="password" value="111111"/>
  	</bean>
 
     <!-- 2. Transaction Setting -->

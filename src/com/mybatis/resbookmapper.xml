@@ -5,11 +5,12 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 <mapper namespace="com.dao.ResBookDao">
 	
 	<insert id="insert" parameterType="resbook">
-		INSERT INTO RESERVE_BOOK VALUES (SEQ_BOOK.NEXTVAL,#{userid},#{bookid},SYSDATE,NULL,SYSDATE+14,#{state})
+		INSERT INTO RESERVE_BOOK (USERID,BOOKID,BRDATE,DUEDATE,STATE) VALUES
+		(#{userid},#{bookid},SYSDATE(),DATE_ADD(SYSDATE(),INTERVAL 14 DAY),#{state})
 	</insert>
 	
 	<update id="update" parameterType="resbook">
-		UPDATE RESERVE_BOOK SET RTDATE=SYSDATE, STATE=#{state} WHERE ID=#{id}
+		UPDATE RESERVE_BOOK SET RTDATE=SYSDATE(), STATE=#{state} WHERE ID=#{id}
 	</update>
 	
 	<delete id="delete" parameterType="String">
@@ -31,3 +32,25 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	
 	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

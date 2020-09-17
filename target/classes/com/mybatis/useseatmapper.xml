@@ -5,12 +5,12 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 <mapper namespace="com.dao.UseSeatDao">
 	
 	<insert id="insert" parameterType="useseat">
-		INSERT INTO USE_SEAT VALUES 
-		(SEQ_SEAT.NEXTVAL,#{userid},#{sid},SYSDATE, NULL)
+		INSERT INTO USE_SEAT (USERID,SID,INTIME) VALUES 
+		(#{userid},#{sid},SYSDATE())
 	</insert>
 	
 	<update id="update" parameterType="useseat">
-		UPDATE USE_SEAT SET OUTTIME=SYSDATE
+		UPDATE USE_SEAT SET OUTTIME=SYSDATE()
 		WHERE ID=#{id}
 	</update>
 	
@@ -28,7 +28,29 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="search" parameterType="String" resultType="useseat">
-		SELECT * FROM USE_SEAT WHERE USERID=#{K} AND OUTTIME IS NULL
+		SELECT * FROM USE_SEAT WHERE USERID=#{K} ORDER BY ID ASC
 	</select>
 	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

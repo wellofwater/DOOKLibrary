@@ -6,11 +6,11 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	
 	<insert id="insert" parameterType="book">
 		INSERT INTO BOOK VALUES 
-		(#{id},#{name},#{qt},SYSDATE,#{author},#{publisher},#{category},#{img},#{contents})
+		(#{id},#{name},#{qt},SYSDATE(),#{author},#{publisher},#{category},#{img},#{contents})
 	</insert>
 	
 	<update id="update" parameterType="book">
-		UPDATE BOOK SET NAME=#{name}, QT=#{qt}, REGDATE=SYSDATE, AUTHOR=#{author}, PUBLISHER=#{publisher}, CATEGORY=#{category}, IMG=#{img} WHERE ID=#{id}
+		UPDATE BOOK SET NAME=#{name}, QT=#{qt}, REGDATE=SYSDATE(), AUTHOR=#{author}, PUBLISHER=#{publisher}, CATEGORY=#{category}, IMG=#{img} WHERE ID=#{id}
 	</update>
 	
 	<delete id="delete" parameterType="String">
