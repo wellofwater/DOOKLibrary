@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.BookDao">
+	
+	<insert id="insert" parameterType="book">
+		INSERT INTO BOOK VALUES 
+		(#{id},#{name},#{qt},SYSDATE,#{author},#{publisher},#{category},#{img},#{contents})
+	</insert>
+	
+	<update id="update" parameterType="book">
+		UPDATE BOOK SET NAME=#{name}, QT=#{qt}, REGDATE=SYSDATE, AUTHOR=#{author}, PUBLISHER=#{publisher}, CATEGORY=#{category}, IMG=#{img} WHERE ID=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM BOOK WHERE ID=#{k}
+	</delete>
+	
+	<select id="select" parameterType="String" 
+	resultType="book">
+		SELECT * FROM BOOK WHERE ID=#{k}
+	</select>
+	
+	<select id="selectall" resultType="book">
+		SELECT * FROM BOOK 
+		
+	</select>
+	 	<select id="search" parameterType="book" resultType="book">
+		SELECT * FROM BOOK WHERE 1=1 
+		<if test="searchCondition == 'NAME'">
+			AND NAME LIKE '%' ||#{searchKeyword}|| '%' ORDER BY ID DESC
+		</if>
+		<if test="searchCondition == 'AUTHOR'">
+			AND AUTHOR LIKE '%' ||#{searchKeyword}|| '%' ORDER BY ID DESC
+		</if>
+		<if test="searchCondition == 'PUBLISHER'">
+			AND PUBLISHER LIKE '%' ||#{searchKeyword}|| '%' ORDER BY ID DESC
+		</if>
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

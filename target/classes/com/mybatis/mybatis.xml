@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.vo.UserVO" alias="user"/>
+		<typeAlias type="com.vo.SeatVO" alias="seat"/>
+		<typeAlias type="com.vo.UseSeatVO" alias="useseat"/>
+		<typeAlias type="com.vo.BookVO" alias="book"/>
+		<typeAlias type="com.vo.ResBookVO" alias="resbook"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="com/mybatis/usermapper.xml"/>
+		<mapper resource="com/mybatis/seatmapper.xml"/>
+		<mapper resource="com/mybatis/useseatmapper.xml"/>
+		<mapper resource="com/mybatis/bookmapper.xml"/>
+		<mapper resource="com/mybatis/resbookmapper.xml"/>
+	</mappers>
+</configuration>
+
+
+
+
+
+

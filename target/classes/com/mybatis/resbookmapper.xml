@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ResBookDao">
+	
+	<insert id="insert" parameterType="resbook">
+		INSERT INTO RESERVE_BOOK VALUES (SEQ_BOOK.NEXTVAL,#{userid},#{bookid},SYSDATE,NULL,SYSDATE+14,#{state})
+	</insert>
+	
+	<update id="update" parameterType="resbook">
+		UPDATE RESERVE_BOOK SET RTDATE=SYSDATE, STATE=#{state} WHERE ID=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM RESERVE_BOOK WHERE ID=#{k}
+	</delete>
+	
+	<select id="select" parameterType="String" 
+	resultType="resbook">
+		SELECT * FROM RESERVE_BOOK WHERE ID=#{k}
+	</select>
+	
+	<select id="selectall" resultType="resbook">
+		SELECT * FROM RESERVE_BOOK 
+	</select>
+	
+	<select id="search" parameterType="String" resultType="resbook">
+		SELECT * FROM RESERVE_BOOK WHERE USERID=#{K} 
+	</select>
+	
+	
+</mapper>

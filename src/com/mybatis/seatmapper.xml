@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.SeatDao">
+	
+	<insert id="insert" parameterType="seat">
+		INSERT INTO SEAT VALUES 
+		(#{id},#{occupy})
+	</insert>
+	
+	<update id="update" parameterType="seat">
+		UPDATE SEAT SET OCCUPY=#{occupy}
+		WHERE ID=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM SEAT WHERE ID=#{k}
+	</delete>
+	
+	<select id="select" parameterType="String" 
+	resultType="seat">
+		SELECT * FROM SEAT WHERE ID=#{k}
+	</select>
+	
+	<select id="selectall" resultType="seat">
+		SELECT * FROM SEAT ORDER BY ID ASC
+	</select>
+	
+	<select id="search" parameterType="String" resultType="seat">
+		SELECT * FROM SEAT WHERE ID LIKE #{K} || '%' ORDER BY ID ASC
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
